@@ -175,14 +175,14 @@ describe('User Endpoints', function () {
           name: 'Klingon',
           total_score: 0,
           words: [
-            { original: `Hlja'`, translation: 'Yes' },
-            { original: `ghobe'`, translation: 'No' },
+            { original: 'Hlja', translation: 'Yes' },
+            { original: 'ghobe', translation: 'No' },
             { original: 'jlyaj', translation: 'I understand' },
-            { original: `majQa'`, translation: 'Well done' },
-            { original: `yl'el`, translation: 'Come in' },
-            { original: `Heghul'meH QaQ jajvam`, translation: 'Today is a good day to die' },
+            { original: 'majQa', translation: 'Well done' },
+            { original: 'ylel', translation: 'Come in' },
+            { original: 'HeghulmeH QaQ jajvam', translation: 'Today is a good day to die' },
             { original: 'qoSlij Datlvjaj', translation: 'Happy Birthday' },
-            { original: `Hab SoSli' Quch`, translation: 'Your mother has a smooth forehead' },
+            { original: 'Hab SoSli Quch', translation: 'Your mother has a smooth forehead' },
           ]
         }
         return supertest(app)

@@ -58,14 +58,14 @@ const UserService = {
         .first()
 
       const languageWords = [
-        [`Hlja'`, 'Yes', 2],
-        [ `ghobe'`, 'No', 3],
-        ['jlyaj', 'I understand', 4],
-        [ `majQa'`, 'Well done', 5],
-        [ `yl'el`, 'Come in', 6],
-        [`Heghul'meH QaQ jajvam`, 'Today is a good day to die', 7],
-        ['qoSlij Datlvjaj', 'Happy Birthday', 8],
-        [`Hab SoSli' Quch`, 'Your mother has a smooth forehead', null]
+        [ 'Hlja', 'Yes', 2],
+        [ 'ghobe', 'No', 3],
+        [ 'jlyaj', 'I understand', 4],
+        [ 'majQa', 'Well done', 5],
+        [ 'ylel', 'Come in', 6],
+        [ 'HeghulmeH QaQ jajvam', 'Today is a good day to die', 7],
+        [ 'qoSlij Datlvjaj', 'Happy Birthday', 8],
+        [ 'Hab SoSli Quch', 'Your mother has a smooth forehead', null]
       ]
 
       const [languageHeadId] = await trx

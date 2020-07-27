@@ -21,14 +21,14 @@ VALUES
 
 INSERT INTO "word" ("id", "language_id", "original", "translation", "next")
 VALUES
-  (1, 1, `Hlja'`, 'Yes', 2),
-  (2, 1, `ghobe'`, 'No', 3),
+  (1, 1, 'Hlja', 'Yes', 2),
+  (2, 1, 'ghobe', 'No', 3),
   (3, 1, 'jlyaj', 'I understand', 4),
-  (4, 1, `majQa'`, 'Well done', 5),
-  (5, 1, `yl'el`, 'Come in', 6),
-  (6, 1, `Heghul'meH QaQ jajvam`, 'Today is a good day to die', 7),
+  (4, 1, 'majQa', 'Well done', 5),
+  (5, 1, 'ylel', 'Come in', 6),
+  (6, 1, 'HeghulmeH QaQ jajvam', 'Today is a good day to die', 7),
   (7, 1, 'qoSlij Datlvjaj', 'Happy Birthday', 8),
-  (8, 1, `Hab SoSli' Quch`, 'Your mother has a smooth forehead', null);
+  (8, 1, 'Hab SoSli Quch', 'Your mother has a smooth forehead', null);
 
 UPDATE "language" SET head = 1 WHERE id = 1;
 
