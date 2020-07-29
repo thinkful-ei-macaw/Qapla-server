@@ -100,8 +100,8 @@ describe('Language Endpoints', function () {
             expect(word).to.have.property('original', usersWord.original)
             expect(word).to.have.property('translation', usersWord.translation)
             expect(word).to.have.property('memory_value', 1)
-            expect(word).to.have.property('correct_count', 0)
-            expect(word).to.have.property('incorrect_count', 0)
+            expect(word).to.have.property('word_correct', 0)
+            expect(word).to.have.property('word_incorrect', 0)
           })
         })
     })
@@ -129,10 +129,10 @@ describe('Language Endpoints', function () {
         .set('Authorization', helpers.makeAuthHeader(testUser))
         .expect(200)
         .expect({
-          nextWord: headWord.original,
-          totalScore: 0,
-          wordCorrectCount: 0,
-          wordIncorrectCount: 0,
+          next_word: headWord.original,
+          total_score: 0,
+          word_correct: 0,
+          word_incorrect: 0,
         })
     })
   })
@@ -181,10 +181,10 @@ describe('Language Endpoints', function () {
           .send(incorrectPostBody)
           .expect(200)
           .expect({
-            nextWord: testLanguagesWords[1].original,
-            totalScore: 0,
-            wordCorrectCount: 0,
-            wordIncorrectCount: 0,
+            next_word: testLanguagesWords[1].original,
+            total_score: 0,
+            word_correct: 0,
+            word_incorrect: 0,
             answer: testLanguagesWords[0].translation,
             isCorrect: false
           })
@@ -201,10 +201,10 @@ describe('Language Endpoints', function () {
           .set('Authorization', helpers.makeAuthHeader(testUser))
           .send(incorrectPostBody)
           .expect({
-            nextWord: testLanguagesWords[0].original,
-            totalScore: 0,
-            wordCorrectCount: 0,
-            wordIncorrectCount: 1,
+            next_word: testLanguagesWords[0].original,
+            total_score: 0,
+            word_correct: 0,
+            word_incorrect: 1,
             answer: testLanguagesWords[1].translation,
             isCorrect: false
           })
@@ -226,10 +226,10 @@ describe('Language Endpoints', function () {
           .send(correctPostBody)
           .expect(200)
           .expect({
-            nextWord: testLanguagesWords[1].original,
-            totalScore: 1,
-            wordCorrectCount: 0,
-            wordIncorrectCount: 0,
+            next_word: testLanguagesWords[1].original,
+            total_score: 1,
+            word_correct: 0,
+            word_incorrect: 0,
             answer: testLanguagesWords[0].translation,
             isCorrect: true
           })
@@ -252,10 +252,10 @@ describe('Language Endpoints', function () {
           .set('Authorization', helpers.makeAuthHeader(testUser))
           .send(correctPostBody)
           .expect({
-            nextWord: testLanguagesWords[2].original,
-            totalScore: 2,
-            wordCorrectCount: 0,
-            wordIncorrectCount: 0,
+            next_word: testLanguagesWords[2].original,
+            total_score: 2,
+            word_correct: 0,
+            word_incorrect: 0,
             answer: testLanguagesWords[1].translation,
             isCorrect: true
           })
@@ -268,10 +268,10 @@ describe('Language Endpoints', function () {
           .set('Authorization', helpers.makeAuthHeader(testUser))
           .send(correctPostBody)
           .expect({
-            nextWord: testLanguagesWords[0].original,
-            totalScore: 3,
-            wordCorrectCount: 1,
-            wordIncorrectCount: 0,
+            next_word: testLanguagesWords[0].original,
+            total_score: 3,
+            word_correct: 1,
+            word_incorrect: 0,
             answer: testLanguagesWords[2].translation,
             isCorrect: true
           })

@@ -1,4 +1,4 @@
-const LinkedList = require('./linked-list')
+const LinkedList = require('../linked-list')
 
 //helper function to get a word at a given ID
 const getWordAt = (words, id) => {
@@ -37,8 +37,8 @@ const LanguageService = {
         'translation',
         'next',
         'memory_value',
-        'correct_count',
-        'incorrect_count',
+        'word_correct',
+        'word_incorrect',
       )
       .where({ language_id })
   },
@@ -53,8 +53,8 @@ const LanguageService = {
          'translation',
          'next',
          'memory_value',
-         'correct_count',
-         'incorrect_count',
+         'word_correct',
+         'word_incorrect',
       )
       .where({ id: head_id })
       .first();
@@ -69,10 +69,10 @@ const LanguageService = {
     if (guess.toLowerCase() === answer.toLowerCase()) {
       isCorrect = true;
       language.total_score++;
-      currentWord.correct_count++;
+      currentWord.word_correct++;
       currentWord.memory_value *=2;
     } else {
-      currentWord.incorrect_count++;
+      currentWord.word_incorrect++;
       currentWord.memory_value = 1;
     }
     return { answer, isCorret, currentWord };
@@ -106,8 +106,8 @@ const LanguageService = {
       const data = {
         next: node.next ? node.next.value : null,
         memory_value: word.memory_value,
-        correct_count: word.correct_count,
-        incorrect_count: word.incorrect_count
+        word_correct: word.word_correct,
+        word_incorrect: word.word_incorrect
       };
 
       //update each word
