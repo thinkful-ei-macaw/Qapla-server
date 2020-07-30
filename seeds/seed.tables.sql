@@ -11,7 +11,7 @@ VALUES
     1,
     'admin',
     'Dunder Mifflin Admin',
-    -- password = "pass"
+    -- password = "pass" change this later
     '$2a$10$fCWkaGbt7ZErxaxclioLteLUgg4Q3Rp09WW0s/wSLxDKYsaGYUpjG'
   );
 
