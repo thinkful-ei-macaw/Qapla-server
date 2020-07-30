@@ -74,7 +74,7 @@ languageRouter
           });
         }
 
-        const {words, wordList } = await LanguageService.getWordsLinkedList(db, req.languag);
+        const {words, wordList } = await LanguageService.getWordsLinkedList(db, req.language);
 
         const { answer, isCorrect, currentWord } = await LanguageService.validateGuess(words, req.language, guess);
 

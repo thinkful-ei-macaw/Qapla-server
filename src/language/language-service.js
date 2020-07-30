@@ -75,7 +75,7 @@ const LanguageService = {
       currentWord.word_incorrect++;
       currentWord.memory_value = 1;
     }
-    return { answer, isCorret, currentWord };
+    return { answer, isCorrect, currentWord };
   },
 
 
@@ -89,13 +89,13 @@ const LanguageService = {
       wordList.insertLast(word.id, word.next);
       word = getWordAt(words, word.next);
     }
-    return {word, wordList}
+    return {words, wordList}
   },
 
-  updateLanguage(db, id, head_id, score) {
+  updateLanguage(db, id, head, score) {
     return db('language')
     .where({id})
-    .update({ head_id, total_score: score});
+    .update({ head, total_score: score});
   },
 
 
