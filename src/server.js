@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const knex = require('knex');
 const app = require('./app');
-const { PORT, DATABASE_URL } = require('./config');
+const { PORT, DATABASE_URL, NODE_ENV } = require('./config');
 
 const db = knex({
   client: 'pg',
@@ -12,5 +12,5 @@ const db = knex({
 app.set('db', db)
 
 app.listen(PORT, () => {
-  console.log(`Server listening at http://localhost:${PORT}`);
-})
+  console.log(`Server listening in ${NODE_ENV} mode at http://localhost:${PORT}`);
+});
