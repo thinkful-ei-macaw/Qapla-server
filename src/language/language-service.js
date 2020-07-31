@@ -43,7 +43,7 @@ const LanguageService = {
       .where({ language_id })
   },
 
-  getHeadWord(db, head_id) {
+  getWordById(db, head_id) {
     return db
       .from('word')
       .select(
@@ -58,6 +58,29 @@ const LanguageService = {
       )
       .where({ id: head_id })
       .first();
+  },
+
+  //optional service
+  getHead(db, user_id) {
+    return db
+      .from('language').join('word', 'head', 'word.id')
+      .select(
+        'id',
+         'language_id',
+         'original',
+         'translation',
+         'next',
+         'memory_value',
+         'word_correct',
+         'word_incorrect',
+      )
+      .where({ user_id: user_id })
+      .first();
+  },
+
+  getTail(db,) {
+    return db
+      .from()
   },
 
   validateGuess(words, language, guess) {
@@ -83,10 +106,13 @@ const LanguageService = {
     const words = await this.getLanguageWords(db, id);
     const wordList = new LinkedList();
 
+    //wordList should directly reference 'word' table rather than linked list
+    //during the while loop, 
+
     // insert words into list
     let word = getWordAt(words, head);
     while (word !== null) {
-      wordList.insertLast(word.id, word.next);
+      wordList.insertLast(word.id, word.next); //.insert(word.next).into()
       word = getWordAt(words, word.next);
     }
     return {words, wordList}
